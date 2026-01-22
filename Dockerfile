@@ -1,16 +1,15 @@
 
 FROM n8nio/n8n:latest
 
-# (Opcional) Autenticación básica
-ENV N8N_BASIC_AUTH_ACTIVE=true=admin123_¡cambiala!ENV N8N_BASIC_AUTH_ACTIVE=true
+ENV N8N_BASIC_AUTH_ACTIVE=true
+ENV N8N_BASIC_AUTH_USER=admin
+ENV N8N_BASIC_AUTH_PASSWORD=admin123
 
-# Ajustes de red para Render
+# Usar el puerto dinámico asignado por Railway
+ENV N8N_PORT=${PORT}
 ENV N8N_HOST=0.0.0.0
-ENV N8N_PORT=5678
 ENV N8N_PROTOCOL=http
 
-EXPOSE 5678
-# Importante: NO pongas CMD ni ENTRYPOINT aquí; usa los de la imagen base.
-ENV N8N_BASIC_AUTH_USER=admin
+EXPOSE ${PORT}
 
-
+CMD ["n8n"]
