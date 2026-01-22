@@ -15,4 +15,3 @@ ENV N8N_PROTOCOL=http
 EXPOSE ${PORT}
 
 CMD ["n8n"]
-``
