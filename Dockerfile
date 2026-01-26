@@ -1,11 +1,13 @@
 
-# Usa la imagen oficial de n8n
+# Usa la imagen oficial
 FROM n8nio/n8n:latest
 
-# (Opcional) Si querés agregar paquetes del SO:
-# USER root
-# RUN apt-get update && apt-get install -y <paquetes> && rm -rf /var/lib/apt/lists/*
-# USER node
+# (opcional) define el puerto de escucha que usa Railway
+ENV N8N_PORT=5678
+ENV PORT=5678
 
-# No agregues CMD ni ENTRYPOINT custom si no hace falta;
-# la imagen ya trae: CMD ["n8n"]
+# (opcional) cambia directorio de trabajo
+WORKDIR /home/node
+
+# Comando de inicio
+CMD ["n8n"]
